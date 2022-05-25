@@ -1,0 +1,80 @@
+﻿@model Mvc.Models.Libro
+
+@{
+    ViewData["Title"] = "Lista de libros";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+
+    @if (TempData["mensaje"] != null)
+    {   
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+
+            @TempData["mensaje"]
+            <button type="button" class="close" date-dismiss="alert" aria-label="Close">
+
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        
+    }
+
+    <div class="row">
+          <div class="col-sm-12">
+              <h3>Insertar un nuevo libro</h3>
+          </div>
+        
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="POST" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Titulo" class="control-label"></label>
+                    <input asp-for="Titulo" class="form-control" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Descripcion" class="control-label"></label>
+                    <input asp-for="Descripcion" class="form-control" />
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+
+                 </div> 
+                <div class="form-group">
+                    <label asp-for="FechaLanzamiento" class="control-label"></label>
+                    <input asp-for="FechaLanzamiento" class="form-control" />
+                    <span asp-validation-for="FechaLanzamiento" class="text-danger"></span>
+
+                </div>
+                    <div class="form-group">
+                    <label asp-for="Autor" class="control-label"></label>
+                    <input asp-for="Autor" class="form-control" />
+                                        <span asp-validation-for="Autor" class="text-danger"></span>
+ 
+                </div>
+                    <div class="form-group">
+                    <label asp-for="precio" class="control-label"></label>
+                    <input asp-for="precio" class="form-control" />
+                                        <span asp-validation-for="precio" class="text-danger"></span>
+
+                </div>
+
+                 <div class="form-group">
+                     <input  type="submit"  value="Crear Libro" class="btn btn-primary"/>
+
+                 </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts{
+
+    @{<partial name="_ValidationScriptsPartial"/>}
+
+}
